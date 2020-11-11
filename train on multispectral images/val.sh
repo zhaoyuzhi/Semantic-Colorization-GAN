@@ -1,0 +1,12 @@
+python validation.py \
+--val_path './validation_results' \
+--load_name './models/SCGAN_WGANGP_epoch40_bs8.pth' \
+--test_batch_size 1 \
+--num_workers 1 \
+--pad 'reflect' \
+--activ_g 'lrelu' \
+--activ_d 'lrelu' \
+--norm_g 'bn' \
+--norm_d 'bn' \
+--val_path './dataset/KAIST dataset processed/val' \
+--crop_size 256 \

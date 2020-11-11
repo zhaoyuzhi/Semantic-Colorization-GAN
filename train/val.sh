@@ -1,0 +1,12 @@
+python validation.py \
+--val_path './validation_results' \
+--load_name './models/SCGAN_WGANGP_epoch40_bs8.pth' \
+--batch_size 1 \
+--num_workers 1 \
+--pad 'reflect' \
+--activ_g 'lrelu' \
+--activ_d 'lrelu' \
+--norm_g 'bn' \
+--norm_d 'bn' \
+--baseroot_rgb './dataset/ILSVRC2012_val_256' \
+--crop_size 256 \
