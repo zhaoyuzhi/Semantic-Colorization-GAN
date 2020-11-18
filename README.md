@@ -2,6 +2,8 @@
 
 This page is for paper **SCGAN: Saliency Map-guided Colorization with Generative Adversarial Network** pubished on IEEE Transactions on Circuits and Systems for Video Technology (TCSVT).
 
+Early access: https://ieeexplore.ieee.org/document/9257445/keywords#keywords
+
 ## 1 Training
 
 We release the training code in **train** folder and **train on multispectral images** folder (for colorizing multispectral images).
@@ -117,11 +119,11 @@ There are many fantastic **legacy photography works**. Our colorization system s
 
 If you think the paper is helpful for your research, please cite:
 ```bash
-@article{zhao2021scgan,
+@article{zhao2020scgan,
   title={SCGAN: Saliency Map-guided Colorization with Generative Adversarial Network},
   author={Zhao, Yuzhi and Po, Lai-Man and Cheung, Kwok-Wai and Yu, Wing-Yin and Abbas Ur Rehman, Yasar},
   journal={IEEE Transactions on Circuits and Systems for Video Technology},
-  year={2021},
+  year={2020},
   publisher={IEEE}
 }
 ```
