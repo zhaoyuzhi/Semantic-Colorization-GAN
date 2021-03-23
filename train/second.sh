@@ -4,13 +4,13 @@ python train.py \
 --save_by_iter 10000 \
 --save_path './models' \
 --sample_path './samples' \
---load_name './models/SCGAN_noGAN_epoch10_bs8.pth' \
---global_feature_network_path './trained_models/vgg16_bn_fc_gray_epoch150_bs256.pth' \
+--load_name './models/SCGAN_noGAN_epoch10_bs32.pth' \
+--global_feature_network_path './trained_models/vgg16_bn_fc_rgb_epoch150_bs256.pth' \
 --perceptual_path './trained_models/vgg16_pretrained.pth' \
 --multi_gpu True \
 --cudnn_benchmark True \
---epochs 30 \
---batch_size 8 \
+--epochs 31 \
+--batch_size 4 \
 --lr_g 1e-4 \
 --lr_d 1e-4 \
 --b1 0.5 \
@@ -34,7 +34,7 @@ python train.py \
 --norm_d 'bn' \
 --init_type 'xavier' \
 --init_gain 0.02 \
---baseroot_rgb './dataset/ILSVRC2012_train_256' \
---baseroot_sal './dataset/ILSVRC2012_train_256_saliencymap' \
+--baseroot_rgb '/mnt/lustre/zhaoyuzhi/dataset/ILSVRC2012_train_256' \
+--baseroot_sal '/mnt/lustre/zhaoyuzhi/dataset/ILSVRC2012_train_256_saliencymap' \
 --crop_size 256 \
 --smaller_coeff 10 \

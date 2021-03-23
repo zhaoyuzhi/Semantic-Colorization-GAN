@@ -186,7 +186,7 @@ def trainer_LSGAN(opt):
         generator = generator.cuda()
         discriminator = nn.DataParallel(discriminator)
         discriminator = discriminator.cuda()
-        perceptualnet = nn.DataParallel(generator)
+        perceptualnet = nn.DataParallel(perceptualnet)
         perceptualnet = perceptualnet.cuda()
     else:
         generator = generator.cuda()
@@ -370,7 +370,7 @@ def trainer_WGAN(opt):
         generator = generator.cuda()
         discriminator = nn.DataParallel(discriminator)
         discriminator = discriminator.cuda()
-        perceptualnet = nn.DataParallel(generator)
+        perceptualnet = nn.DataParallel(perceptualnet)
         perceptualnet = perceptualnet.cuda()
     else:
         generator = generator.cuda()
@@ -545,7 +545,7 @@ def trainer_WGANGP(opt):
         generator = generator.cuda()
         discriminator = nn.DataParallel(discriminator)
         discriminator = discriminator.cuda()
-        perceptualnet = nn.DataParallel(generator)
+        perceptualnet = nn.DataParallel(perceptualnet)
         perceptualnet = perceptualnet.cuda()
     else:
         generator = generator.cuda()
