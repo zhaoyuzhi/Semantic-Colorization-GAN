@@ -84,8 +84,10 @@ class ColorizationDataset_Val(Dataset):
 
         # Read the images
         img = cv2.imread(imgpath)
+        h, w = img.shape[0], img.shape[1]
+
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)                  # RGB output image
-        img = cv2.resize(img, (self.opt.crop_size, self.opt.crop_size))
+        img = cv2.resize(img, (self.opt.crop_size_w, self.opt.crop_size_h))
         grayimg = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)             # Grayscale input image
 
         # Normalized to [-1, 1]
@@ -98,7 +100,7 @@ class ColorizationDataset_Val(Dataset):
         grayimg = torch.from_numpy(grayimg).unsqueeze(0).contiguous()
         img = torch.from_numpy(img).permute(2, 0, 1).contiguous()
 
-        return grayimg, img, imgpath
+        return grayimg, img, imgpath, h, w
     
     def __len__(self):
         return len(self.imglist)

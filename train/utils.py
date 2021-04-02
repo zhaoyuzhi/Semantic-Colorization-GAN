@@ -115,7 +115,7 @@ def get_relative_dirs(path):
     for root, dirs, files in os.walk(path):
         for filespath in files:
             a = os.path.join(root, filespath)
-            a = a.split('\\')[-2] + '/' + a.split('\\')[-1]
+            a = os.path.join(a.split('\\')[-2], a.split('\\')[-1])
             ret.append(a)
     return ret
 
