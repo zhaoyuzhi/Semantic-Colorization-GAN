@@ -14,8 +14,10 @@ class ColorizationDataset(Dataset):
         # 2. imglist: all the image names under "baseroot"
         self.opt = opt
         imglist = utils.get_jpgs(opt.baseroot_sal)
+        '''
         if opt.smaller_coeff > 1:
             imglist = self.create_sub_trainset(imglist, opt.smaller_coeff)
+        '''
         self.imglist = imglist
 
     def create_sub_trainset(self, imglist, smaller_coeff):
@@ -45,14 +47,14 @@ class ColorizationDataset(Dataset):
             rand_h = random.randint(0, h - self.opt.crop_size)
             rand_w = random.randint(0, w - self.opt.crop_size)
             img = img[rand_h:rand_h + self.opt.crop_size, rand_w:rand_w + self.opt.crop_size, :]
-            grayimg = grayimg[rand_h:rand_h + self.opt.crop_size, rand_w:rand_w + self.opt.crop_size, :]
+            grayimg = grayimg[rand_h:rand_h + self.opt.crop_size, rand_w:rand_w + self.opt.crop_size]
             sal = sal[rand_h:rand_h + self.opt.crop_size, rand_w:rand_w + self.opt.crop_size]
 
         # Normalized to [-1, 1]
         grayimg = np.ascontiguousarray(grayimg, dtype = np.float32)
-        grayimg = (grayimg - 128.0) / 128.0
+        grayimg = grayimg / 255.0
         img = np.ascontiguousarray(img, dtype = np.float32)
-        img = (img - 128.0) / 128.0
+        img = img / 255.0
         sal = np.ascontiguousarray(sal, dtype = np.float32)
         sal = sal / 255.0
 
@@ -72,7 +74,7 @@ class ColorizationDataset_Val(Dataset):
         # 1. opt: all the options
         # 2. imglist: all the image names under "baseroot"
         self.opt = opt
-        imglist = utils.get_jpgs(opt.baseroot_sal)
+        imglist = utils.get_files(opt.baseroot_rgb)
         self.imglist = imglist
 
     def __getitem__(self, index):
@@ -83,27 +85,20 @@ class ColorizationDataset_Val(Dataset):
         # Read the images
         img = cv2.imread(imgpath)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)                  # RGB output image
+        img = cv2.resize(img, (self.opt.crop_size, self.opt.crop_size))
         grayimg = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)             # Grayscale input image
-
-        # Random cropping
-        if self.opt.crop_size > 0:
-            h, w = img.shape[:2]
-            rand_h = random.randint(0, h - self.opt.crop_size)
-            rand_w = random.randint(0, w - self.opt.crop_size)
-            img = img[rand_h:rand_h + self.opt.crop_size, rand_w:rand_w + self.opt.crop_size, :]
-            grayimg = grayimg[rand_h:rand_h + self.opt.crop_size, rand_w:rand_w + self.opt.crop_size, :]
 
         # Normalized to [-1, 1]
         grayimg = np.ascontiguousarray(grayimg, dtype = np.float32)
-        grayimg = (grayimg - 128.0) / 128.0
+        grayimg = grayimg / 255.0
         img = np.ascontiguousarray(img, dtype = np.float32)
-        img = (img - 128.0) / 128.0
+        img = img / 255.0
 
         # To PyTorch Tensor
         grayimg = torch.from_numpy(grayimg).unsqueeze(0).contiguous()
         img = torch.from_numpy(img).permute(2, 0, 1).contiguous()
 
-        return grayimg, img
+        return grayimg, img, imgpath
     
     def __len__(self):
         return len(self.imglist)

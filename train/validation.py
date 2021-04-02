@@ -12,7 +12,6 @@ if __name__ == "__main__":
     # ----------------------------------------
     parser = argparse.ArgumentParser()
     # general parameters
-    parser.add_argument('--val_path', type = str, default = './validation_results', help = 'save the validation results to certain path')
     parser.add_argument('--load_name', type = str, default = '', help = 'load the pre-trained model with certain epoch')
     parser.add_argument('--batch_size', type = int, default = 1, help = 'size of the batches')
     parser.add_argument('--num_workers', type = int, default = 1, help = 'number of cpu threads to use during batch generation')
@@ -41,20 +40,19 @@ if __name__ == "__main__":
     print('The overall number of images:', len(trainset))
 
     # Define the dataloader
-    dataloader = DataLoader(trainset, batch_size = opt.batch_size, shuffle = True, num_workers = opt.num_workers, pin_memory = True)
+    dataloader = DataLoader(trainset, batch_size = opt.batch_size, shuffle = False, num_workers = opt.num_workers, pin_memory = True)
     
     # For loop training
-    for i, (true_L, true_RGB) in enumerate(dataloader):
+    for i, (true_L, true_RGB, imgpath) in enumerate(dataloader):
 
         # To device
         true_L = true_L.cuda()
         true_RGB = true_RGB.cuda()
+        imgpath = imgpath[0]
 
         # Forward
-        fake_RGB = generator(true_L)
+        with torch.no_grad():
+            fake_RGB = generator(true_L)
 
         # Save validation images
-        img_list = [fake_RGB, true_RGB]
-        name_list = ['pred', 'gt']
-        utils.save_sample_png(sample_folder = opt.val_path, sample_name = str(i), img_list = img_list, name_list = name_list)
-
+        cv2.imwrite(imgpath, fake_RGB)

@@ -1,5 +1,4 @@
 python validation.py \
---val_path './validation_results' \
 --load_name './models/SCGAN_WGANGP_epoch40_bs8.pth' \
 --batch_size 1 \
 --num_workers 1 \
