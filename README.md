@@ -1,8 +1,8 @@
 # Semantic-Colorization-GAN
 
-This is a supplementary material for the paper **SCGAN: Saliency Map-guided Colorization with Generative Adversarial Network** pubished on IEEE Transactions on Circuits and Systems for Video Technology (TCSVT).
+This is a supplementary material for the paper **SCGAN: Saliency Map-guided Colorization with Generative Adversarial Network**, IEEE Transactions on Circuits and Systems for Video Technology (TCSVT'20).
 
-IEEE Xplore early access: https://ieeexplore.ieee.org/document/9257445/keywords#keywords
+IEEE Xplore: https://ieeexplore.ieee.org/abstract/document/9257445/?casa_token=SCtE33FH3SAAAAAA:NaOfOWFjqItL2yizMZVNYVswXSv7Djl0vezWVTzpWajY8CbBoq9piVlU3z9GQjv8ZFCPCUXPoZQ
 
 Arxiv: https://arxiv.org/abs/2011.11377
 
@@ -137,6 +137,8 @@ If you think the paper is helpful for your research, please cite:
 }
 ```
 
+## 7 Find our Latest Works About Image / Video Colorization
+
 A similar work on mobile phone image enhancement is available in this [webpage](https://github.com/zhaoyuzhi/RAW2RGB-GAN)
 ```bash
 @inproceedings{zhao2019saliency,
@@ -149,8 +151,17 @@ A similar work on mobile phone image enhancement is available in this [webpage](
 }
 ```
 
-## 7 Find our Latest Works About Image / Video Colorization
+A SOTA fully-automatic video colorization work is available in this [webpage](https://github.com/zhaoyuzhi/VCGAN)
+```bash
+@article{zhao2021vcgan,
+  title={VCGAN: Video Colorization with Hybrid Generative Adversarial Network},
+  author={Zhao, Yuzhi and Po, Lai-Man and Yu, Wing-Yin and Rehman, Yasar Abbas Ur and Liu, Mengyang and Zhang, Yujia and Ou, Weifeng},
+  journal={arXiv preprint arXiv:2104.12357},
+  year={2021}
+}
+```
 
+A legacy photo restoration work including scribble-based image colorization is available in this [webpage](https://github.com/zhaoyuzhi/Legacy-Photo-Editing-with-Learned-Noise-Prior)
 ```bash
 @inproceedings{zhao2021legacy,
   title={Legacy Photo Editing with Learned Noise Prior},
@@ -161,19 +172,11 @@ A similar work on mobile phone image enhancement is available in this [webpage](
 }
 ```
 
-```bash
-@article{zhao2021vcgan,
-  title={VCGAN: Video Colorization with Hybrid Generative Adversarial Network},
-  author={Zhao, Yuzhi and Po, Lai-Man and Yu, Wing-Yin and Rehman, Yasar Abbas Ur and Liu, Mengyang and Zhang, Yujia and Ou, Weifeng},
-  journal={arXiv preprint arXiv:2104.12357},
-  year={2021}
-}
-```
-
+A SOTA scribble-based video colorization work is available in this [webpage](https://github.com/zhaoyuzhi/SVCNet)
 ```bash
 @article{zhao2021svcnet,
   title={SVCNet: Real-time Scribble-based Video Colorization with Pyramid Networks},
-  author={Zhao, Yuzhi and Po, Lai-Man and Liu, Kangcheng and Wang, Xuehui and Yu, Wing-Yin},
+  author={Zhao, Yuzhi and Po, Lai-Man and Liu, Kangcheng and Wang, Xuehui and Yu, Wing-Yin and Xian, Pengfei},
   journal={arXiv preprint},
   year={2021}
 }
