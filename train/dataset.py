@@ -37,10 +37,14 @@ class ColorizationDataset(Dataset):
 
         # Read the images
         img = cv2.imread(imgpath)
+        
+        # Process the image
+        img = cv2.resize(img, (self.opt.crop_size, self.opt.crop_size))
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)                  # RGB output image
         grayimg = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)             # Grayscale input image
         sal = cv2.imread(salpath, -1)                               # Saliency map output image
 
+        '''
         # Random cropping
         if self.opt.crop_size > 0:
             h, w = img.shape[:2]
@@ -49,19 +53,12 @@ class ColorizationDataset(Dataset):
             img = img[rand_h:rand_h + self.opt.crop_size, rand_w:rand_w + self.opt.crop_size, :]
             grayimg = grayimg[rand_h:rand_h + self.opt.crop_size, rand_w:rand_w + self.opt.crop_size]
             sal = sal[rand_h:rand_h + self.opt.crop_size, rand_w:rand_w + self.opt.crop_size]
+        '''
 
-        # Normalized to [-1, 1]
-        grayimg = np.ascontiguousarray(grayimg, dtype = np.float32)
-        grayimg = grayimg / 255.0
-        img = np.ascontiguousarray(img, dtype = np.float32)
-        img = img / 255.0
-        sal = np.ascontiguousarray(sal, dtype = np.float32)
-        sal = sal / 255.0
-
-        # To PyTorch Tensor
-        grayimg = torch.from_numpy(grayimg).unsqueeze(0).contiguous()
-        img = torch.from_numpy(img).permute(2, 0, 1).contiguous()
-        sal = torch.from_numpy(sal).unsqueeze(0).contiguous()
+        # Normalized to [0, 1] and then transferred to PyTorch Tensor
+        grayimg = torch.from_numpy(grayimg / 255.0).float().unsqueeze(0).contiguous()
+        img = torch.from_numpy(img / 255.0).float().permute(2, 0, 1).contiguous()
+        sal = torch.from_numpy(sal / 255.0).float().unsqueeze(0).contiguous()
 
         return grayimg, img, sal
     
@@ -82,24 +79,19 @@ class ColorizationDataset_Val(Dataset):
         imgname = self.imglist[index]
         imgpath = os.path.join(self.opt.baseroot_rgb, imgname)
 
-        # Read the images
+        # Read the image
         img = cv2.imread(imgpath)
         h, w = img.shape[0], img.shape[1]
-
+        
+        # Process the image
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)                  # RGB output image
         img = cv2.resize(img, (self.opt.crop_size_w, self.opt.crop_size_h))
         grayimg = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)             # Grayscale input image
 
-        # Normalized to [-1, 1]
-        grayimg = np.ascontiguousarray(grayimg, dtype = np.float32)
-        grayimg = grayimg / 255.0
-        img = np.ascontiguousarray(img, dtype = np.float32)
-        img = img / 255.0
-
-        # To PyTorch Tensor
-        grayimg = torch.from_numpy(grayimg).unsqueeze(0).contiguous()
-        img = torch.from_numpy(img).permute(2, 0, 1).contiguous()
-
+        # Normalized to [0, 1] and then transferred to PyTorch Tensor
+        grayimg = torch.from_numpy(grayimg / 255.0).float().unsqueeze(0).contiguous()
+        img = torch.from_numpy(img / 255.0).float().permute(2, 0, 1).contiguous()
+        
         return grayimg, img, imgpath, h, w
     
     def __len__(self):
