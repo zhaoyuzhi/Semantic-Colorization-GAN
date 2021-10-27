@@ -8,7 +8,7 @@ Arxiv: https://arxiv.org/abs/2011.11377
 
 ## 1 Training
 
-We release the training code in **train** folder and **train on multispectral images** folder (for colorizing multispectral images).
+We release the training code in **train** folder.
 
 The codes require following libs:
 
@@ -17,6 +17,12 @@ The codes require following libs:
 - torchvision>=0.2.1
 - Cuda>=8.0
 - opencv-python>=4.4.0.46
+
+If you want to train on multispectral data, please refer to the **train on multispectral images** folder.
+
+The pre-trained global feature network can be found in: https://portland-my.sharepoint.com/:f:/g/personal/yzzhao2-c_my_cityu_edu_hk/ErOcFJc0pilMvCkE53Essi0Bjj89h90l0Y9kEYv390kPEw?e=exNoad
+
+The saliency maps are computed by PFAN: https://github.com/CaitinZhao/cvpr2019_Pyramid-Feature-Attention-Network-for-Saliency-detection
 
 ## 2 Evaluation
 
