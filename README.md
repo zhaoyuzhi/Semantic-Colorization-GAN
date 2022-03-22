@@ -138,6 +138,9 @@ If you think the paper is helpful for your research, please cite:
   title={SCGAN: Saliency Map-guided Colorization with Generative Adversarial Network},
   author={Zhao, Yuzhi and Po, Lai-Man and Cheung, Kwok-Wai and Yu, Wing-Yin and Abbas Ur Rehman, Yasar},
   journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  volume={31},
+  number={8},
+  pages={3062--3077},
   year={2020},
   publisher={IEEE}
 }
@@ -162,8 +165,8 @@ A SOTA fully-automatic video colorization work is available in this [webpage](ht
 @article{zhao2021vcgan,
   title={VCGAN: Video Colorization with Hybrid Generative Adversarial Network},
   author={Zhao, Yuzhi and Po, Lai-Man and Yu, Wing-Yin and Rehman, Yasar Abbas Ur and Liu, Mengyang and Zhang, Yujia and Ou, Weifeng},
-  journal={arXiv preprint arXiv:2104.12357},
-  year={2021}
+  journal={IEEE Transactions on Multimedia},
+  year={2022}
 }
 ```
 
@@ -184,6 +187,6 @@ A SOTA scribble-based video colorization work is available in this [webpage](htt
   title={SVCNet: Real-time Scribble-based Video Colorization with Pyramid Networks},
   author={Zhao, Yuzhi and Po, Lai-Man and Liu, Kangcheng and Wang, Xuehui and Yu, Wing-Yin and Xian, Pengfei},
   journal={arXiv preprint},
-  year={2021}
+  year={2022}
 }
 ```
