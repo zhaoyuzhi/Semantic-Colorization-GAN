@@ -141,8 +141,7 @@ If you think the paper is helpful for your research, please cite:
   volume={31},
   number={8},
   pages={3062--3077},
-  year={2020},
-  publisher={IEEE}
+  year={2020}
 }
 ```
 
@@ -155,17 +154,17 @@ A similar work on mobile phone image enhancement is available in this [webpage](
   author={Zhao, Yuzhi and Po, Lai-Man and Zhang, Tiantian and Liao, Zongbang and Shi, Xiang and others},
   booktitle={Proceedings of the International Conference on Computer Vision Workshop},
   pages={3449--3457},
-  year={2019},
-  organization={IEEE}
+  year={2019}
 }
 ```
 
 A SOTA fully-automatic video colorization work is available in this [webpage](https://github.com/zhaoyuzhi/VCGAN)
 ```bash
-@article{zhao2021vcgan,
+@article{zhao2022vcgan,
   title={VCGAN: Video Colorization with Hybrid Generative Adversarial Network},
   author={Zhao, Yuzhi and Po, Lai-Man and Yu, Wing-Yin and Rehman, Yasar Abbas Ur and Liu, Mengyang and Zhang, Yujia and Ou, Weifeng},
   journal={IEEE Transactions on Multimedia},
+  doi={10.1109/TMM.2022.3154600},
   year={2022}
 }
 ```
@@ -183,7 +182,7 @@ A legacy photo restoration work including scribble-based image colorization is a
 
 A SOTA scribble-based video colorization work is available in this [webpage](https://github.com/zhaoyuzhi/SVCNet)
 ```bash
-@article{zhao2021svcnet,
+@article{zhao2022svcnet,
   title={SVCNet: Real-time Scribble-based Video Colorization with Pyramid Networks},
   author={Zhao, Yuzhi and Po, Lai-Man and Liu, Kangcheng and Wang, Xuehui and Yu, Wing-Yin and Xian, Pengfei},
   journal={arXiv preprint},
