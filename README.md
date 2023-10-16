@@ -164,7 +164,8 @@ A SOTA fully-automatic video colorization work is available in this [webpage](ht
   title={VCGAN: Video Colorization with Hybrid Generative Adversarial Network},
   author={Zhao, Yuzhi and Po, Lai-Man and Yu, Wing-Yin and Rehman, Yasar Abbas Ur and Liu, Mengyang and Zhang, Yujia and Ou, Weifeng},
   journal={IEEE Transactions on Multimedia},
-  doi={10.1109/TMM.2022.3154600},
+  volume={25},
+  pages={3017-3032},
   year={2022}
 }
 ```
@@ -182,10 +183,12 @@ A legacy photo restoration work including scribble-based image colorization is a
 
 A SOTA scribble-based video colorization work is available in this [webpage](https://github.com/zhaoyuzhi/SVCNet)
 ```bash
-@article{zhao2022svcnet,
-  title={SVCNet: Real-time Scribble-based Video Colorization with Pyramid Networks},
-  author={Zhao, Yuzhi and Po, Lai-Man and Liu, Kangcheng and Wang, Xuehui and Yu, Wing-Yin and Xian, Pengfei},
-  journal={arXiv preprint},
-  year={2022}
+@article{zhao2023svcnet,
+  title={SVCNet: Scribble-Based Video Colorization Network With Temporal Aggregation},
+  author={Zhao, Yuzhi and Po, Lai-Man and Liu, Kangcheng and Wang, Xuehui and Yu, Wing-Yin and Xian, Pengfei and Zhang, Yujia and Liu, Mengyang},
+  journal={IEEE Transactions on Image Processing},
+  volume={32},
+  pages={4443-4458},
+  year={2023}
 }
 ```
